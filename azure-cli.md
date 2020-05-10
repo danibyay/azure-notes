@@ -1,6 +1,6 @@
 # Azure CLI Notes
 
-Create a resource group 
+## 1. Create a resource group 
 > az group create --name \<name> --location \<location>
 
 Example

@@ -36,3 +36,15 @@ A default landing page by azure is waiting for you:
 You can also curl the site.
 > curl $AZURE_WEB_APP.azurewebsites.net
 
+## 4. Deploy a specific web app from a Repo 
+
+It can be your own, or an example from Github
+
+> az webapp deployment source config --name $AZURE_WEB_APP --resource-group $RESOURCE_GROUP --repo-url "https://github.com/Azure-Samples/php-docs-hello-world" --branch master --manual-integration
+
+
+This example uses an azure php web app from [github]("https://github.com/Azure-Samples/php-docs-hello-world")
+
+Nothing too fancy, but now it's custom.
+![](img/phpapp.png)
+
