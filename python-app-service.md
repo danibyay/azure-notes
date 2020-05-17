@@ -11,6 +11,8 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp
         export RESOURCE_GROUP=x
         export SERVICE_PLAN=y
         export APP_SERVICE=z
+        
+Pro-tip = name the plan and the service the same
 
 ## 1. Create a resource group
 
@@ -20,7 +22,7 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp
 
 ## 2. Create a service plan 
 
-> az appservice plan create -g $RESOURCE_GROUP -n $APP_SERVICE --is-linux --sku B1
+> az appservice plan create -g $RESOURCE_GROUP -n $SERVICE_PLAN --is-linux --sku B1
 
 ## 3. Create the web app
  
@@ -34,7 +36,7 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp
 
 Clone your repo, and in the console, cd to the repo directory
 
-> az webapp up -n $APP_SERVICE -g $RESOURCE_GROUP
+> az webapp up -n $APP_SERVICE -g $RESOURCE_GROUP -p $SERVICE_PLAN
 
 Visit the page at:
 
