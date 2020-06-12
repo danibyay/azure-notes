@@ -54,7 +54,7 @@ Container / general info / change access level / anonymous read access for blobs
 
 ![](img/blob_read.png)
 
-## 3.1 Auth. Create an Azure Active directory tenant
+## 3.1 Setup azure active directory in python
 
 https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant
 
@@ -64,6 +64,15 @@ https://github.com/Azure-Samples/ms-identity-python-webapp
 
 Look for the instructions on "Register the Python Webapp (python-webapp)"
 
+0. Register and app and set the redirect url
+
+1. Identify the tenant id (Azure portal / Active directory / Properties / Tenant ID) or create a new one.
+
+2. Verify read permissions API are set (what this app needs)
+
+3. Save app id and set it in config.py as CLIENT_ID
+
+4. Create a secret and use it as an env var, (both locally and inside the web app for azure). *Bonus*: use a key vault
 
 ## 4. To run the python app locally
 
@@ -120,3 +129,12 @@ https://akhilsharma.work/how-to-pass-environment-variables-in-azure-webapps/
 Go to web app / application settings / add a setting  ( env var)
 
 ![](img/env_var.png)
+
+## Enable logging
+
+    handler = logging.StreamHandler(stream=sys.stdout)
+    handler.setFormatter(logging.Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s"))
+    app.logger.addHandler(handler)
+    app.logger.setLevel(logging.INFO)
+    app.logger.info('Microblog startup')
+    app.logger.info(header)
